@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function BlogPreview() {
   const date = "Dec 26th, 2023";
   const category = "Tech";
@@ -12,7 +14,7 @@ export default function BlogPreview() {
   const authorRole = "Front-end Developer";
 
   return (
-    <div className="w-full">
+    <div className="w-full grid grid-cols-3 gap-4 mt-16">
       <article className="flex flex-col md:space-x-4 mb-8">
         <div className="relative w-full">
           <img
@@ -24,17 +26,20 @@ export default function BlogPreview() {
         </div>
         <div className="w-full md:w-2/3">
           <div className="flex items-center justify-between">
-            <time className="text-sm text-gray-500">{date}</time>
-            {/* <Link href={`/${category.toLowerCase()}`}> */}
-            <a className="text-sm text-blue-500">{category}</a>
-            {/* </Link> */}
+            <time className="text-sm text-white">{date}</time>
+            <Link
+              className="text-sm text-amber-600 hover:text-amber-500"
+              href={`/#`}
+            >
+              {category}
+            </Link>
           </div>
           <h3 className="text-xl mt-2">
-            {/* <Link href="/blog/[slug]" as={`/blog/${slug}`}> */}
-            <a className="text-black hover:text-blue-500">{title}</a>
-            {/* </Link> */}
+            <Link className="text-amber-600 hover:text-amber-500" href="/#">
+              {title}
+            </Link>
           </h3>
-          <p className="mt-2 text-gray-700">{excerpt}</p>
+          <p className="mt-2 text-white">{excerpt}</p>
           <div className="flex items-center mt-4">
             <img
               src={authorImage}
@@ -59,17 +64,20 @@ export default function BlogPreview() {
         </div>
         <div className="w-full md:w-2/3">
           <div className="flex items-center justify-between">
-            <time className="text-sm text-gray-500">{date}</time>
-            {/* <Link href={`/${category.toLowerCase()}`}> */}
-            <a className="text-sm text-blue-500">{category}</a>
-            {/* </Link> */}
+            <time className="text-sm text-white">{date}</time>
+            <Link
+              className="text-sm text-amber-600 hover:text-amber-500"
+              href={`/#`}
+            >
+              {category}
+            </Link>
           </div>
           <h3 className="text-xl mt-2">
-            {/* <Link href="/blog/[slug]" as={`/blog/${slug}`}> */}
-            <a className="text-black hover:text-blue-500">{title}</a>
-            {/* </Link> */}
+            <Link className="text-amber-600 hover:text-amber-500" href="/#">
+              {title}
+            </Link>
           </h3>
-          <p className="mt-2 text-gray-700">{excerpt}</p>
+          <p className="mt-2 text-white">{excerpt}</p>
           <div className="flex items-center mt-4">
             <img
               src={authorImage}
@@ -94,17 +102,20 @@ export default function BlogPreview() {
         </div>
         <div className="w-full md:w-2/3">
           <div className="flex items-center justify-between">
-            <time className="text-sm text-gray-500">{date}</time>
-            {/* <Link href={`/${category.toLowerCase()}`}> */}
-            <a className="text-sm text-blue-500">{category}</a>
-            {/* </Link> */}
+            <time className="text-sm text-white">{date}</time>
+            <Link
+              className="text-sm text-amber-600 hover:text-amber-500"
+              href={`/#`}
+            >
+              {category}
+            </Link>
           </div>
           <h3 className="text-xl mt-2">
-            {/* <Link href="/blog/[slug]" as={`/blog/${slug}`}> */}
-            <a className="text-black hover:text-blue-500">{title}</a>
-            {/* </Link> */}
+            <Link className="text-amber-600 hover:text-amber-500" href="/#">
+              {title}
+            </Link>
           </h3>
-          <p className="mt-2 text-gray-700">{excerpt}</p>
+          <p className="mt-2 text-white">{excerpt}</p>
           <div className="flex items-center mt-4">
             <img
               src={authorImage}
