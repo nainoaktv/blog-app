@@ -26,7 +26,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed w-full top-0 left-0 z-20 border-b  bg-green-950">
+      <nav className="fixed w-full top-0 left-0 z-20 border-b bg-gradient-to-bl from-emerald-950">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <NavItems router={router} />
         </div>
