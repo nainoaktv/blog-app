@@ -6,23 +6,23 @@ import { useRouter } from "next/navigation";
 import { useContext } from "react";
 import NavModal from "../NavModal";
 
-function NavItems({ isModalView = false, router }) {
+function NavItems({ isModalView = false, onItemClick }) {
   return (
     <div
-      className={`items-center w-auto justify-between md:flex md:w-auto ${
+      className={`items-center w-auto justify-end md:flex md:w-auto ${
         isModalView ? "" : "hidden"
       }`}
     >
       <ul
-        className={`flex flex-col p-4 md:p-0 mt-4 font-medium font-mono md:flex-row md:space-x-8 md:mt-0 md:border-0 ${
+        className={`flex flex-col mr-4 p-4 md:p-0 mt-4 font-medium font-mono md:flex-row md:space-x-8 md:mt-0 md:border-0 ${
           isModalView ? "border-none" : "border border-gray-100"
         }`}
       >
         {navOptions.map((item) => (
           <li
-            className="cursor-pointer block py-2 pl-4 pr-4 mb-4 ml-3 bg-amber-700 hover:bg-amber-600 text-black rounded md:p-1 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 shadow-lg shadow-amber-400/30"
+            className="cursor-pointer block py-2 pl-4 pr-4 mb-4 bg-amber-700 hover:bg-amber-600 text-black rounded md:p-1 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 shadow-lg shadow-amber-400/30"
             key={item.id}
-            onClick={() => router.push(item.path)}
+            onClick={() => onItemClick(item.path)}
           >
             {item.label}
           </li>
@@ -35,6 +35,11 @@ function NavItems({ isModalView = false, router }) {
 export default function Navbar() {
   const { showNavModal, setShowNavModal } = useContext(GlobalContext);
   const router = useRouter();
+
+  const handleNavModalClick = (path) => {
+    setShowNavModal(false);
+    router.push(path);
+  };
 
   return (
     <>
@@ -67,7 +72,9 @@ export default function Navbar() {
       </nav>
       <NavModal
         showModalTitle={false}
-        mainContent={<NavItems isModalView={true} />}
+        mainContent={
+          <NavItems isModalView={true} onItemClick={handleNavModalClick} />
+        }
         show={showNavModal}
         setShow={setShowNavModal}
       />
