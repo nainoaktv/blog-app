@@ -41,11 +41,16 @@ export default function Navbar() {
     router.push(path);
   };
 
+  const handleNormalNavClick = (path) => {
+    setShowNavModal(false);
+    router.push(path);
+  };
+
   return (
     <>
       <nav className="fixed w-full top-0 left-0 z-20 border-b bg-gradient-to-bl from-emerald-950">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"></div>
-        <NavItems router={router} isModalView={false} />
+        <NavItems onItemClick={handleNormalNavClick} isModalView={false} />
         <button
           data-collapse-toggle="navbar-sticky"
           type="button"
